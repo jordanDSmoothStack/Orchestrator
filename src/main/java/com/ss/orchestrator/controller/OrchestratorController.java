@@ -156,6 +156,14 @@ public class OrchestratorController {
 		ResponseEntity<String> response = restTemplate.exchange("http://localhost:8100/utopia/bookings/flight/"+ id, HttpMethod.POST, entity, String.class);
 		return response;
 	}
+	@PutMapping(path= {"/utopia/bookings/cancel/{id}", "/utopia/bookings/cancel/{id}/"}, produces= {"application/json", "application/xml"})
+	public ResponseEntity<String> cancelBookingById(@PathVariable("id") String id, @RequestHeader Map<String, String> requestHeader) {
+		HttpHeaders headers = new HttpHeaders();
+		headers = OrchestratorController.setAcceptType(requestHeader, headers);
+		HttpEntity<String> entity = new HttpEntity<String>("parameters", headers);
+		ResponseEntity<String> response = restTemplate.exchange("http://localhost:8100/utopia/bookings/cancel/"+ id, HttpMethod.PUT, entity, String.class);
+		return response;
+	}
 	
 	//
 	// Headers
