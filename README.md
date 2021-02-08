@@ -20,6 +20,10 @@ GET `http://localhost:8090/utopia/flights`: List all flights.
 
 GET `http://localhost:8090/utopia/flights/from/{airportID}`: List flights departing from an airport with the specified ID.
 
+GET `http://localhost:8090/utopia/flights/from/{departureAirportID}/to/{arrivalAirportID}`: List flights going from departureAirportID to arrivalAirportID.
+
+GET `http://localhost:8090/utopia/flights/number/{flightNumber}`: Return a flight of the specified number or 404.
+
 ## Bookings
 
 GET `http://localhost:8090/utopia/bookings/{id}`: Get a booking by ID number.
